@@ -24,8 +24,15 @@ echo -e "Now, enter the command that you want to be done. \c"
 read com
 
 crontab -l > mycrontab &> /dev/null
+#list of crontable store in file mycrontab... (crontab -e is used to edit the file)
+
 echo "$minutes $hours $date $month $day $com" > mycron
+#the particular time when the script should run is stored in the file...
+
 crontab mycron
+#run crontab command...
+
 rm mycron
+#remove the file once it's scheduled...
 
 echo "Your job is done..!!"
